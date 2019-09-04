@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Immediate Component</title>
+          </h:head>
+           <h:body>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="#{msgs.txtName}"></h:outputLabel>
+                <h:inputText value="#{testImmediateComponent.name}" size="20"
+                             required="true"
+                             requiredMessage="#{msgs.txtEmptyName}"/>
+                <h:outputLabel value="#{mgsg.txtLang}"/>
+                <h:selectOneMenu
+                    value="#{testImmediateComponent.lanuage}" onchange="submit()"
+                    immediate="true"
+                    valueChangeListener="#{testImmediateComponent.lanuageChange}">
+                    <f:selectItems value="#{testImmediateComponent.lanuageMap}"/>
+                 </h:selectOneMenu>
+            </h:panelGrid>
+            <h:commandButton value="Submit"/>
+      <h:outputText escape="false" style="color:red" value="#{testImmediateComponent.newData()}"/>
+        </h:form>
+   </h:body>
+</html>
+
